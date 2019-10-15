@@ -213,4 +213,13 @@ class ArrowLineNextView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ArrowLineNextView {
+            val view : ArrowLineNextView = ArrowLineNextView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
