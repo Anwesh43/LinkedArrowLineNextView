@@ -189,4 +189,26 @@ class ArrowLineNextView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArrowLineNextView) {
+
+        private val animator : Animator = Animator(view)
+        private val aln : ArrowLineNext = ArrowLineNext(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            aln.draw(canvas, paint)
+            animator.animate {
+                aln.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            aln.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
