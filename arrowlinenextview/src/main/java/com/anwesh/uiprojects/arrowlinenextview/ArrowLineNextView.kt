@@ -54,7 +54,7 @@ fun Canvas.drawALNNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     save()
-    translate(w / 2, gap * (i + 1))
+    translate(0f, gap * (i + 1))
     drawArrowLine(w, size, scale, paint)
     restore()
 }
